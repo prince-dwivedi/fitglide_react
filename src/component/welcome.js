@@ -31,7 +31,7 @@ const Welcome = () => {
           <p className="line">Hey there! </p>
           <p className="line">I'm Max,</p>
           <p className="line">Your virtual fitness companion, and I'm thrilled to welcome you to FitGlide!</p>
-          <p className="line">Together, we're going to embark on an incredible fitness journey.</p>
+          <p className="line">Together, we're going to embark on an incredible fitness journey.</p> 
      </div>
   </div>
   )
