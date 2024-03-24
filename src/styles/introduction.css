@@ -1,0 +1,36 @@
+.introduction-container {
+    text-align: center;
+  }
+  
+  .line {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+  
+  .delayed {
+    animation-delay: 2s;
+  }
+  
+  .input-container {
+    margin-top: 20px;
+  }
+  
+  .name-input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
