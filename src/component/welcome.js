@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MaxIcon from '../assets/images/max_icons_u.png';
 import '../styles/welcome.css';
+import Introduction from '../component/introduction';
 
 const Welcome = () => {
   // Use state to manage line visibility
@@ -24,6 +25,11 @@ const Welcome = () => {
     };
   }, []);
 
+  const handleIntroductionSubmit = (name) => {
+    console.log(`Hello, ${name}!`);
+    // You can add logic here to update the user table in the FitGlide database
+  };
+
   return(
     <div className="container">
       <img src={MaxIcon} alt="Max Icon" className="max-icon" />
@@ -33,6 +39,11 @@ const Welcome = () => {
           <p className="line">Your virtual fitness companion, and I'm thrilled to welcome you to FitGlide!</p>
           <p className="line">Together, we're going to embark on an incredible fitness journey.</p> 
      </div>
+     {!showLines &&
+     
+     <Introduction onSubmit={handleIntroductionSubmit} /> /* Use the Introduction component */
+     }
+     
   </div>
   )
 };
