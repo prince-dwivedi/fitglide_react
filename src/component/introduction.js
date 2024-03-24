@@ -18,8 +18,8 @@ const Introduction = ({ onSubmit }) => {
     <div className="introduction">
       <p className="introduction-text">But enough about me, I'm eager to learn all about you!</p>
       <p className="introduction-text">Before we dive into the world of fitness, let's get acquainted!</p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">What's your name?</label>
+      <form onSubmit={handleSubmit} className='introduction-text'>
+        <label htmlFor="name" className=''>What's your name?</label>
         <input type="text" id="name" value={name} onChange={handleChange} />
         <button type="submit">Submit</button>
       </form>
