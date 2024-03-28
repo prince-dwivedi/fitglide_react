@@ -9,11 +9,8 @@ import Objective from '../component/objective';
 const Welcome = () => {
   // Use state to manage line visibility
   const [showLines, setShowLines] = useState(false);
+  const [visitorName, setVisitorName] = useState(false);
   const [introductionCompleted, setIntroductionCompleted] = useState(false);
-  
-
-
-
   useEffect(() => {
     // Show lines after 1 second (optional, assuming animation is handled in CSS)
     const lineTimeout = setTimeout(() => {
@@ -33,7 +30,7 @@ const Welcome = () => {
   }, []);
 
   const handleIntroductionSubmit = (name) => {
-    console.log(`Hello, ${name}!`);
+    setVisitorName(name)
     setIntroductionCompleted(true);
 
     // You can add logic here to update the user table in the FitGlide database
@@ -49,12 +46,12 @@ const Welcome = () => {
           <p className="line">Your virtual fitness companion, and I'm thrilled to welcome you to FitGlide!</p>
           <p className="line">Together, we're going to embark on an incredible fitness journey.</p> 
      </div>
-     {!showLines &&
+     {!showLines && !introductionCompleted &&
      
      <Introduction onSubmit={handleIntroductionSubmit} /> /* Use the Introduction component */
      }
     {introductionCompleted && (
-        <Objective />
+        <Objective visitorName={visitorName}/>
       )}
   </div>
   )

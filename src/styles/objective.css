@@ -17,6 +17,10 @@
     display: flex;
     justify-content: center;  
 }
+
+#selection-button {
+  opacity: 0;
+}
   
 .objective-button {
     padding: 10px 20px;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import "../../src/styles/introduction.css";
 
 
@@ -14,16 +14,16 @@ const Introduction = ({ onSubmit }) => {
 
  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      // Send a POST request to update user table with the first name
-      await axios.post('/api/submit', { firstName: name });
-      console.log('User updated successfully.');
-      onSubmit(name); // Pass the name to the parent component
-      setFadeOut(true); // Trigger fade-out animation
-    } catch (error) {
-      console.error('Error updating user:', error);
-    }
+    onSubmit(name);
+    // try {
+    //   // Send a POST request to update user table with the first name
+    //   await axios.post('/api/submit', { firstName: name });
+    //   console.log('User updated successfully.');
+    //   onSubmit(name); // Pass the name to the parent component
+    //   setFadeOut(true); // Trigger fade-out animation
+    // } catch (error) {
+    //   console.error('Error updating user:', error);
+    // }
   };
 
   useEffect(() => {
