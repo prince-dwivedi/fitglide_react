@@ -1,14 +1,14 @@
-// App.js
-import React from 'react';
+
 import './App.css';
 import Welcome from '../src/component/welcome';
+
 
 const App = () => {
   
 
   return (
     <div className="App">
-      <Welcome />
+      <Welcome/> {/* Pass visitor's name to Welcome component */}
     </div>
   );
 };

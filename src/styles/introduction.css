@@ -23,26 +23,40 @@
   
 
   /* Apply animation delay to each line */
-  .line:nth-child(1) {
-    animation-delay: 1s; /* Delay line 1 by 1 second */
+  .introduction-text:nth-child(1) {
+    animation: fade-in 1s forwards 1s; /* Apply fade-in animation with delay */
   }
   
-  .line:nth-child(2) {
-    animation-delay: 2s; /* Delay line 2 by 5 seconds */
+  .introduction-text:nth-child(2) {
+    animation: fade-in 1s forwards 2s; /* Apply fade-in animation with delay */
   }
   
-  .delayed {
-    animation-delay: 2s;
+  .introduction-text:nth-child(3) {
+    animation: fade-in 1s forwards 3s; /* Apply fade-in animation with delay */
   }
   
   .input-container {
-    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    margin-top: 30px;
   }
   
+  .fade-in {
+    animation: fade-in 1s forwards 2s;
+  }
+  
+  .fade-out {
+    animation: fade-out 1s forwards;
+  }
+  
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+      
   .name-input {
     width: 300px;
     padding: 10px;
-    margin-right: 10px;
+    margin-top: 30px;
   }
   
   .submit-button {
@@ -57,4 +71,3 @@
   .submit-button:hover {
     background-color: #0056b3;
   }
-  
