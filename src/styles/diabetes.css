@@ -1,0 +1,17 @@
+.diabetes {
+    font-size: 30px;
+    opacity: 0;
+}
+
+.diabetes-text {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
