@@ -8,9 +8,10 @@ const Diabetes = ({ visitorName }) => {
         return name.replace(/\b\w/g, (char) => char.toUpperCase());
     };
     useEffect(() => {
+        console.log("herererrerererrererrerer")
         const lineTimeout1 = setTimeout(() => {
             document.getElementById('line1').classList.add('fade-in');
-        }, 100);
+        }, 0);
 
         const lineTimeout2 = setTimeout(() => {
             document.getElementById('line2').classList.add('fade-in');
