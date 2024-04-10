@@ -45,3 +45,8 @@
     background-color: #0056b3;
   }
   
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
