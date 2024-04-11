@@ -13,7 +13,7 @@ const Objective = ({ visitorName }) => {
     useEffect(() => {
         const lineTimeout1 = setTimeout(() => {
             document.getElementById('line1').classList.add('fade-in');
-        }, 10);
+        }, 1000);
 
         const lineTimeout2 = setTimeout(() => {
             document.getElementById('line2').classList.add('fade-in');

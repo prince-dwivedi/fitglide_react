@@ -1,0 +1,87 @@
+import React, { useState, useEffect } from 'react';
+
+const WeightLossQuiz = () => {
+    const [questions, setQuestions] = useState([]);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [showResponse, setShowResponse] = useState(false);
+    const [encouragement, setEncouragement] = useState('');
+
+    // Mocked questions data for demonstration purposes
+    const questionBank = [
+        {
+            question: "Did you know that being overweight or obese can increase the risk of which of the following conditions?",
+            options: [
+                { id: 'A', text: 'Type 2 diabetes' },
+                { id: 'B', text: 'Heart disease' },
+                { id: 'C', text: 'High blood pressure' },
+                { id: 'D', text: 'All of the above' }
+            ],
+            correctAnswer: 'D',
+            encouragement: "Hey there, champ! You're off to a fantastic start! That's spot on! Here's 10 fitcoins to boost your journey to wellness!"
+        },
+        // Add more questions here
+    ];
+
+    useEffect(() => {
+        // Simulate fetching questions from a backend API
+        setQuestions(questionBank);
+    }, []);
+
+    useEffect(() => {
+        if (showResponse) {
+            const nextQuestionTimeout = setTimeout(() => {
+                setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+                setShowResponse(false);
+                setSelectedOption(null);
+                setEncouragement('');
+            }, 3000); // Show next question after 3 seconds
+            return () => clearTimeout(nextQuestionTimeout);
+        }
+    }, [showResponse]);
+
+    const handleOptionChange = (optionId) => {
+        setSelectedOption(optionId);
+        const currentQuestion = questions[currentQuestionIndex];
+        if (optionId === currentQuestion.correctAnswer) {
+            setEncouragement(currentQuestion.encouragement);
+        } else {
+            setEncouragement("Oops! That's not quite right. Keep going!");
+        }
+        setShowResponse(true);
+    };
+
+    return (
+        <div className="weight-loss-quiz">
+            {questions.length > 0 && currentQuestionIndex < questions.length && (
+                <>
+                    <h3>Question {currentQuestionIndex + 1}:</h3>
+                    <p>{questions[currentQuestionIndex].question}</p>
+                    <form>
+                        {questions[currentQuestionIndex].options.map(option => (
+                            <div key={option.id}>
+                                <input
+                                    type="radio"
+                                    id={`option${option.id}`}
+                                    name="option"
+                                    value={option.id}
+                                    checked={selectedOption === option.id}
+                                    onChange={() => handleOptionChange(option.id)}
+                                />
+                                <label htmlFor={`option${option.id}`}>{option.text}</label>
+                            </div>
+                        ))}
+                    </form>
+                    {showResponse && (
+                        <p>{encouragement}</p>
+                    )}
+                </>
+            )}
+            {currentQuestionIndex === questions.length && (
+                <p>Congratulations! You've completed the quiz!</p>
+            )}
+        </div>
+    );
+};
+
+export default WeightLossQuiz;
