@@ -1,0 +1,28 @@
+.weight-loss-quiz {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.weight-loss-quiz h3 {
+    font-size: 36px; /* Increase font size for question headings */
+}
+
+.weight-loss-quiz p {
+    margin-bottom: 30px; /* Add margin bottom for paragraphs */
+}
+
+.weight-loss-quiz form {
+    margin-bottom: 30px; /* Add margin bottom for the form */
+}
+
+.weight-loss-quiz input[type="radio"] {
+    margin-right: 10px; /* Add margin between radio buttons and their labels */
+}
+
+.weight-loss-quiz label {
+    cursor: pointer; /* Change cursor to pointer when hovering over labels */
+}
+
+.weight-loss-quiz p {
+    margin-top: 20px; /* Add margin top for response messages */
+}

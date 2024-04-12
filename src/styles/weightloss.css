@@ -21,3 +21,16 @@
         opacity: 1;
     }
 }
+.play-button {
+    /* Button styles */
+    background-color: blue; /* Blue color */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px; /* Button text size set to 30px */
+    margin-top: 20px; /* Add space between the button and the last line of text */
+    cursor: pointer;
+}

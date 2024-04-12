@@ -1,16 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import WeightLossQuiz from '../../src/component/weightlossquiz';
 import "../../src/styles/weightloss.css";
 
 const WeightLoss = ({ visitorName }) => {
-    //const [fade, setFade] = useState(false);
+    const [showQuiz, setShowQuiz] = useState(false);
+    const [showButton, setShowButton] = useState(false); // State to control button visibility
+    const [fadeScreen, setFadeScreen] = useState(false); // State to control screen fade-out
 
     const capitalizeName = (name) => {
         return name.replace(/\b\w/g, (char) => char.toUpperCase());
     };
+
+    const handlePlayButtonClick = () => {
+        setFadeScreen(true); // Set state to fade out the screen
+        setTimeout(() => {
+            setShowQuiz(true); // Set state to show the WeightLossQuiz component after half a second
+        }, 500);
+    };
+
     useEffect(() => {
         const lineTimeout1 = setTimeout(() => {
             document.getElementById('line1').classList.add('fade-in');
-        }, 100);
+        }, 1000);
 
         const lineTimeout2 = setTimeout(() => {
             document.getElementById('line2').classList.add('fade-in');
@@ -24,20 +35,34 @@ const WeightLoss = ({ visitorName }) => {
             document.getElementById('line4').classList.add('fade-in');
         }, 4000);
 
+        const buttonTimeout = setTimeout(() => {
+            setShowButton(true); // Set showButton state to true after 5 seconds
+        }, 7000); // Button appears after 5 seconds
+
         return () => {
             clearTimeout(lineTimeout1);
             clearTimeout(lineTimeout2);
             clearTimeout(lineTimeout3);
             clearTimeout(lineTimeout4);
+            clearTimeout(buttonTimeout); // Clear the button timeout on unmount
         };
     }, []);
 
     return (
-        <div className="weight-loss">
-            <p id="line1" className="weight-loss-text">Congratulations, {capitalizeName(visitorName)}! 🌟 Your fitness journey begins now!</p>
-            <p id="line2" className="weight-loss-text">By joining us, you're already on the path to success.</p>
-            <p id="line3" className="weight-loss-text">India's obesity rates are exploding, rivaling China for the world's #2 spot. Studies show a near-tripling of obesity since 1990, fueled by our changing lifestyles, unhealthy diets, and decreasing physical activity.</p>
-            <p id="line4" className="weight-loss-text">Get ready to discover how carrying extra weight affects you and how losing it can make you healthier and happier!</p>
+        <div className={`weight-loss ${fadeScreen ? 'fade-out' : ''}`}>
+            {showQuiz ? (
+                <WeightLossQuiz />
+            ) : (
+                <>
+                    <p id="line1" className="weight-loss-text">Congratulations, {capitalizeName(visitorName)}! 🌟 Your fitness journey begins now!</p>
+                    <p id="line2" className="weight-loss-text">By joining us, you're already on the path to success.</p>
+                    <p id="line3" className="weight-loss-text">India's obesity rates are exploding, rivaling China for the world's #2 spot. Studies show a near-tripling of obesity since 1990, fueled by our changing lifestyles, unhealthy diets, and decreasing physical activity.</p>
+                    <p id="line4" className="weight-loss-text">"Discover weight's impact, earn FitCoins! Play the game for rewards and start your wellness journey!"</p>
+                    {showButton && ( // Conditionally render the button
+                        <button className="play-button" onClick={handlePlayButtonClick}>Let's Play!</button>
+                    )}
+                </>
+            )}
         </div>
     );
 };
