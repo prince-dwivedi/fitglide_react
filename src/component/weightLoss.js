@@ -49,11 +49,12 @@ const WeightLoss = ({ visitorName }) => {
     }, []);
 
     return (
-        <div className={`weight-loss ${fadeScreen ? 'fade-out' : ''}`}>
-            {showQuiz ? (
-                <WeightLossQuiz />
+        <div>
+            {!showQuiz ?
+            <div className={`weight-loss ${fadeScreen ? 'fade-out' : ''}`}>
+{/*             
             ) : (
-                <>
+                <> */}
                     <p id="line1" className="weight-loss-text">Congratulations, {capitalizeName(visitorName)}! 🌟 Your fitness journey begins now!</p>
                     <p id="line2" className="weight-loss-text">By joining us, you're already on the path to success.</p>
                     <p id="line3" className="weight-loss-text">India's obesity rates are exploding, rivaling China for the world's #2 spot. Studies show a near-tripling of obesity since 1990, fueled by our changing lifestyles, unhealthy diets, and decreasing physical activity.</p>
@@ -61,9 +62,16 @@ const WeightLoss = ({ visitorName }) => {
                     {showButton && ( // Conditionally render the button
                         <button className="play-button" onClick={handlePlayButtonClick}>Let's Play!</button>
                     )}
-                </>
-            )}
+                {/* </>
+            )} */}
+            
         </div>
+        :showQuiz && 
+                <WeightLossQuiz />
+            }
+            
+        </div>
+        
     );
 };
 

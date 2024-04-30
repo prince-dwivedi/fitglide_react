@@ -1,80 +1,72 @@
-/* styles.css */
 .container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-color: #f0f0f0; /* Example background color */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.max-icon {
+  width: 40%;
+  animation: slideIn 1s forwards;
+}
+
+.text-container {
+  text-align: center;
+  position: relative;
+}
+
+.line {
+  font-size: 30px;
+  opacity: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%; /* Align lines vertically at the center */
+  left: 50%; /* Align lines horizontally at the center */
+  transform: translate(-50%, -50%);
+}
+
+.fade-in-out {
+  animation: fadeInOut 5s forwards;
+}
+
+.fade-in-out.delay-1s {
+  animation-delay: 1s;
+}
+
+.fade-in-out.delay-2s {
+  animation-delay: 6s;
+}
+
+.fade-in-out.delay-3s {
+  animation-delay: 11s;
+}
+
+.fade-in-out.delay-4s {
+  animation-delay: 16s;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
   }
-  
-  /* Max icon styling */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
   .max-icon {
-    position: fixed;
-    right: 0%; /* Initially position the icon outside the screen */
-    top: 0%;
-    height: 100vh; /* Make the icon full height */
-    width: 100%;
-    object-fit: cover; /* Maintain aspect ratio */
-    animation: slideIn 1s forwards; /* Apply the slide in animation */
+    width: 80%;
   }
-  
-  @keyframes slideIn {
-    0% {
-      right: -50%; /* Start position outside the screen */
-    }
-    100% {
-      right: 0; /* End position at 0% from the right */
-    }
-  }
-  
-  /* Text container styling */
-  .text-container {
-    position: fixed;
-    left: 40%;
-    top: 40%;
-    transform: translate(-60%, -40%);
-    text-align: center;
-  }
-  
-  /* Line styling */
-  .line {
-    font-size: 30px;
-    opacity: 0; /* Initially hidden */
-    margin: 30px; /* Add spacing between lines */
-    animation: fade-in 1s forwards; /* Apply fade-in animation */
-  }
-  
-  /* Keyframes for text lines fading in */
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  /* Apply animation delay to each line */
-  .line:nth-child(1) {
-    animation-delay: 1s; /* Delay line 1 by 1 second */
-  }
-  
-  .line:nth-child(2) {
-    animation-delay: 2s; /* Delay line 2 by 5 seconds */
-  }
-  
-  .line:nth-child(3) {
-    animation-delay: 3s; /* Delay line 3 by 10 seconds */
-  }
-  
-  .line:nth-child(4) {
-    animation-delay: 4s; /* Delay line 4 by 15 seconds */
-  }
-  
-  /* Apply fade-out animation after 5 seconds */
-  .fade-out-all {
-    animation: fade-out 1s forwards;
-  }
-  
-  /* Keyframes for text lines fading out */
-  @keyframes fade-out {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-  
-  
+}

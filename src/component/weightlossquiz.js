@@ -66,7 +66,7 @@ const questions = [
             { id: 'D', text: 'Neither A nor B' }
         ],
         correctAnswer: 'C',
-        encouragement: "You're smashing it out there! Knowing this empowers you to make positive changes! Here's 10 fitcoins to fuel your determination!"
+        encouragement: "You're smashing it out there!  Here's 10 fitcoins to fuel your determination!"
     },
     {
         question: "Did you know that which of the following lifestyle changes can help in losing weight?",
@@ -135,20 +135,22 @@ const WeightLossQuiz = () => {
         } else {
             setEncouragement("Oops! That's not quite right. Keep going!");
         }
-        setShowResponse(false); // Hide responses when an option is selected
+        // setShowResponse(false); // Hide responses when an option is selected
         const nextQuestionTimeout = setTimeout(() => {
-            setCurrentQuestionIndex(prevIndex => prevIndex + 1);
-        }, 1000); // Show next question after 1 second
-        return () => clearTimeout(nextQuestionTimeout);
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+            setSelectedOption('');
+            setEncouragement('');
+        }, 3000); // Show next question after 1 second
+        // return () => clearTimeout(nextQuestionTimeout);
     };
 
     return (
         <div className="weight-loss-quiz">
             {currentQuestionIndex < questions.length && (
                 <>
-                    <h3 className="question">{questions[currentQuestionIndex].question}</h3>
+                    <h3 className={`question fade-in`}>{questions[currentQuestionIndex].question}</h3>
                     {showResponse && (
-                        <div className="options">
+                        <div className={`options fade-in`}>
                             {questions[currentQuestionIndex].options.map(option => (
                                 <div key={option.id}>
                                     <input
@@ -165,7 +167,7 @@ const WeightLossQuiz = () => {
                         </div>
                     )}
                     {showResponse && (
-                        <p className="encouragement">{encouragement}</p>
+                        <p className={`encouragement fade-in`}>{encouragement}</p>
                     )}
                 </>
             )}

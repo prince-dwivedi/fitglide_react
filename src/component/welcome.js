@@ -1,51 +1,53 @@
+/* welcome.js */
 import React, { useState, useEffect } from 'react';
-import MaxIcon from '../assets/images/max_icons_u.png';
+import MaxIcon from '../assets/images/max_new.png';
 import '../styles/welcome.css';
 import Introduction from '../component/introduction';
 import Objective from '../component/objective';
 
-
-
 const Welcome = () => {
-  // Use state to manage line visibility
   const [showLines, setShowLines] = useState(false);
   const [visitorName, setVisitorName] = useState(false);
   const [introductionCompleted, setIntroductionCompleted] = useState(false);
+  const [showIntroduction, setShowIntroduction] = useState(false);
+
   useEffect(() => {
-    // Show lines after 1 second (optional, assuming animation is handled in CSS)
     const lineTimeout = setTimeout(() => {
       setShowLines(true);
     }, 1000);
 
-    // Hide lines after 5 seconds by setting showLines to false (fade-out animation is triggered in CSS)
-    const fadeTimeout = setTimeout(() => {
-      setShowLines(false);
-    }, 5000);
 
-    // Clean up timeouts
     return () => {
       clearTimeout(lineTimeout);
-      clearTimeout(fadeTimeout);
     };
   }, []);
 
-  const handleIntroductionSubmit = (name) => {
-    setVisitorName(name)
-    setIntroductionCompleted(true);
+  useEffect(() => {
+    if (introductionCompleted) {
+      const introTimeout = setTimeout(() => {
+        setShowIntroduction(true);
+      }, 1000); // Change the delay time as needed
 
-    // You can add logic here to update the user table in the FitGlide database
-    
+      return () => {
+        clearTimeout(introTimeout);
+      };
+    }
+  }, [introductionCompleted]);
+  
+  const handleIntroductionSubmit = (name) => {
+    setVisitorName(name);
+    setIntroductionCompleted(true);
   };
 
-  return(
-    <div className="container">
+  return (
+    <div className="lines">
       <img src={MaxIcon} alt="Max Icon" className="max-icon" />
-      <div className={`text-container ${showLines ? '' : 'fade-out-all'}`}> {/* Apply fade-out class conditionally */}
-          <p className="line">Hey there! </p>
-          <p className="line">I'm Max,</p>
-          <p className="line">Your virtual fitness companion, and I'm thrilled to welcome you to FitGlide!</p>
-          <p className="line">Together, we're going to embark on an incredible fitness journey.</p> 
-     </div>
+      <div className={`text-container ${showLines ? 'fade-in' : 'fade-out'}`}>
+        <p className="line fade-in-out delay-1s">Hey there!</p>
+        <p className="line fade-in-out delay-2s">I'm Max,</p>
+        <p className="line fade-in-out delay-3s">Your virtual fitness companion, and I'm thrilled to welcome you to FitGlide!</p>
+        <p className="line fade-in-out delay-4s">Together, we're going to embark on an incredible fitness journey.</p>
+        </div>
      {!showLines && !introductionCompleted &&
      
      <Introduction onSubmit={handleIntroductionSubmit} /> /* Use the Introduction component */
@@ -54,7 +56,8 @@ const Welcome = () => {
         <Objective visitorName={visitorName}/>
       )}
   </div>
-  )
+ 
+  );
 };
 
 export default Welcome;
