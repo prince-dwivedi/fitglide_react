@@ -1,28 +1,41 @@
 .weight-loss-quiz {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    transform: translate(-60%, -40%);
+    text-align: center;
+}
+
+.question {
     font-size: 30px;
-    line-height: 30px;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 1;
+    margin: 30px;
 }
 
-.weight-loss-quiz h3 {
-    font-size: 36px; /* Increase font size for question headings */
+.options {
+    opacity: 1;
+    margin-top: 30px;
+    font-size: 30px;
 }
 
-.weight-loss-quiz p {
-    margin-bottom: 30px; /* Add margin bottom for paragraphs */
+.encouragement {
+    font-size: 25px;
+    font-style: italic;
+    margin-top: 30px;
+    opacity: 1;
 }
 
-.weight-loss-quiz form {
-    margin-bottom: 30px; /* Add margin bottom for the form */
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
 }
 
-.weight-loss-quiz input[type="radio"] {
-    margin-right: 10px; /* Add margin between radio buttons and their labels */
-}
-
-.weight-loss-quiz label {
-    cursor: pointer; /* Change cursor to pointer when hovering over labels */
-}
-
-.weight-loss-quiz p {
-    margin-top: 20px; /* Add margin top for response messages */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

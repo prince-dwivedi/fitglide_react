@@ -29,7 +29,7 @@ const Introduction = ({ onSubmit }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowInput(true); // Show input box after 5 seconds
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(timeout);
   }, []);
