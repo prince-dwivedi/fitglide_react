@@ -6,21 +6,31 @@ import Introduction from '../component/introduction';
 import Objective from '../component/objective';
 
 const Welcome = () => {
-  const [showLines, setShowLines] = useState(false);
+  const [showLines, setShowLines] = useState(true);
   const [visitorName, setVisitorName] = useState(false);
   const [introductionCompleted, setIntroductionCompleted] = useState(false);
   const [showIntroduction, setShowIntroduction] = useState(false);
 
   useEffect(() => {
     const lineTimeout = setTimeout(() => {
-      setShowLines(true);
-    }, 1000);
+      setShowLines(false);
+    }, 21000);
 
 
     return () => {
       clearTimeout(lineTimeout);
     };
   }, []);
+  // useEffect(() => {
+  //   const lineTimeout = setTimeout(() => {
+  //     alert('sddsdsdsdsds')
+  //   }, 24000);
+
+
+  //   return () => {
+  //     clearTimeout(lineTimeout);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (introductionCompleted) {
@@ -42,12 +52,14 @@ const Welcome = () => {
   return (
     <div className="lines">
       <img src={MaxIcon} alt="Max Icon" className="max-icon" />
-      <div className={`text-container ${showLines ? 'fade-in' : 'fade-out'}`}>
+      {showLines && 
+      <div className={`text-container `}  >
         <p className="line fade-in-out delay-1s">Hey there!</p>
         <p className="line fade-in-out delay-2s">I'm Max,</p>
         <p className="line fade-in-out delay-3s">Your virtual fitness companion, and I'm thrilled to welcome you to FitGlide!</p>
-        <p className="line fade-in-out delay-4s">Together, we're going to embark on an incredible fitness journey.</p>
-        </div>
+        <p className="line fade-in-out delay-4s" onAnimationEnd={() => console.log(true)}>Together, we're going to embark on an incredible fitness journey.</p>
+      </div>
+      }
      {!showLines && !introductionCompleted &&
      
      <Introduction onSubmit={handleIntroductionSubmit} /> /* Use the Introduction component */

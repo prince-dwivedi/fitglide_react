@@ -36,8 +36,8 @@ const Introduction = ({ onSubmit }) => {
 
   return (
     <div className={`text-container introduction ${fadeOut ? 'fade-out' : ''}`}>
-      <p className="introduction-text fade-in" onAnimationEnd={() => setShowInput(true)}>But enough about me, I'm eager to learn all about you!</p>
-      <p className="introduction-text fade-in">Before we dive into the world of fitness, let's get acquainted!</p>
+      <p className="introduction-text fade-in" >But enough about me, I'm eager to learn all about you!</p>
+      <p className="introduction-text fade-in" onAnimationEnd={() => setShowInput(true)}>Before we dive into the world of fitness, let's get acquainted!</p>
       <p className="introduction-text fade-in">What's your name?</p>
       {showInput && (
         <form onSubmit={handleSubmit} className="input-container fade-in delayed">
