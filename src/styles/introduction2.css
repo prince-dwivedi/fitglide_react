@@ -1,0 +1,47 @@
+.container {
+  text-align: center;
+}
+
+.introduction-text {
+  font-size: 24px; /* Adjusted font size for mobile */
+  opacity: 0;
+  margin: 20px;
+  color: black;
+}
+
+.fade-in {
+  animation: fadeIn 2s forwards;
+}
+
+.name-input {
+  width: 100%; /* Set input width to 100% */
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.input-container {
+  opacity: 0;
+}
+
+.fade-in.delay-9s {
+  animation-delay: 9s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Add Bootstrap responsive classes as needed */
