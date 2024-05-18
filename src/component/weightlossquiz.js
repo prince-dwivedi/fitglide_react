@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../../src/styles/weightlossquiz.css";
+import Signup from '../../src/component/singup'; // Import the Signup component
 
 const questions = [
     {
@@ -114,11 +115,16 @@ const questions = [
     }
 ];
 
-const WeightLossQuiz = () => {
+const WeightLossQuiz = ({ onQuizComplete }) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [correctAnswers, setCorrectAnswers] = useState(0);
+    const [fitCoinsEarned, setFitCoinsEarned] = useState(0);
     const [showResponse, setShowResponse] = useState(false);
     const [encouragement, setEncouragement] = useState('');
+    const [quizCompleted, setQuizCompleted] = useState(false);
+    const [showSignup, setShowSignup] = useState(false); // State to manage signup form visibility
+    const [fadeOut, setFadeOut] = useState(false); // State to control fade-out animation
 
     useEffect(() => {
         const questionTimeout = setTimeout(() => {
@@ -127,53 +133,78 @@ const WeightLossQuiz = () => {
         return () => clearTimeout(questionTimeout);
     }, [currentQuestionIndex]);
 
+    useEffect(() => {
+        if (currentQuestionIndex === questions.length) {
+            setQuizCompleted(true);
+        }
+    }, [currentQuestionIndex]);
+
     const handleOptionChange = (optionId) => {
         setSelectedOption(optionId);
         const currentQuestion = questions[currentQuestionIndex];
         if (optionId === currentQuestion.correctAnswer) {
+            setCorrectAnswers(correctAnswers + 1);
+            setFitCoinsEarned(fitCoinsEarned + 10);
             setEncouragement(currentQuestion.encouragement);
         } else {
             setEncouragement("Oops! That's not quite right. Keep going!");
         }
-        // setShowResponse(false); // Hide responses when an option is selected
         const nextQuestionTimeout = setTimeout(() => {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelectedOption('');
             setEncouragement('');
-        }, 3000); // Show next question after 1 second
-        // return () => clearTimeout(nextQuestionTimeout);
+        }, 3000); // Show next question after 3 seconds
+    };
+
+    const handleQuizComplete = () => {
+        onQuizComplete(fitCoinsEarned);
+    };
+
+    const handleSignupClick = () => {
+        setFadeOut(true); // Start the fade-out animation
+        setTimeout(() => {
+            setShowSignup(true); // Set state to show the signup form after fade-out
+            console.log("showSignup:", showSignup);
+        }, 2000); // Adjust timing to match your CSS transition duration
     };
 
     return (
-        <div className="weight-loss-quiz">
-            {currentQuestionIndex < questions.length && (
-                <>
-                    <h3 className={`question fade-in`}>{questions[currentQuestionIndex].question}</h3>
-                    {showResponse && (
-                        <div className={`options fade-in`}>
-                            {questions[currentQuestionIndex].options.map(option => (
-                                <div key={option.id}>
-                                    <input
-                                        type="radio"
-                                        id={`option${option.id}`}
-                                        name="option"
-                                        value={option.id}
-                                        checked={selectedOption === option.id}
-                                        onChange={() => handleOptionChange(option.id)}
-                                    />
-                                    <label htmlFor={`option${option.id}`}>{option.text}</label>
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                    {showResponse && (
-                        <p className={`encouragement fade-in`}>{encouragement}</p>
-                    )}
-                </>
-            )}
-            {currentQuestionIndex === questions.length && (
-                <p>Congratulations! You've completed the quiz!</p>
-            )}
+        <div className="weight-loss-quiz" >
+            <div className={`content ${fadeOut ? 'fade-out' : ''}`}>
+                {currentQuestionIndex < questions.length && (
+                    <>
+                        <h3 className="question">{questions[currentQuestionIndex].question}</h3>
+                        {showResponse && (
+                            <div className="options">
+                                {questions[currentQuestionIndex].options.map(option => (
+                                    <div key={option.id}>
+                                        <input
+                                            type="radio"
+                                            id={`option${option.id}`}
+                                            name="option"
+                                            value={option.id}
+                                            checked={selectedOption === option.id}
+                                            onChange={() => handleOptionChange(option.id)}
+                                        />
+                                        <label htmlFor={`option${option.id}`}>{option.text}</label>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                        {showResponse && (
+                            <p className="encouragement">{encouragement}</p>
+                        )}
+                    </>
+                )}
+                {quizCompleted && (
+                    <div>
+                        <p>Congratulations! You've completed the quiz!</p>
+                        <p>You've earned {fitCoinsEarned} FitCoins!</p>
+                        <button onClick={handleSignupClick}>Sign Up</button> {/* Show signup form when clicked */}
+                    </div>
+                )}
+            </div>
+            {showSignup && <Signup />} {/* Conditionally render the Signup component */}
         </div>
     );
 };

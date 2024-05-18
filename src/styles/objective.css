@@ -1,52 +1,70 @@
-.objective {
-    position: fixed;
-    top: 40%;
-    left: 40%;
-    transform: translate(-60%, -40%);
-    text-align: center;
-  }
-  
-  .objective-text {
-    font-size: 30px;
-    opacity: 0;
-    margin: 30px;
-  }
+.max-icon {
+  width: 70%; /* Adjusted width for mobile and tablets */
+  animation: slideIn 1s forwards;
+}
 
-  .button-container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;  
+.objective {
+  text-align: center;
+}
+
+.objective-text {
+  font-size: 18px; /* Reduced font size for mobile and tablets */
+  opacity: 0;
+  margin: 0; /* Remove negative margin */
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Keyframes for fading in and out */
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Apply animation delay to each line */
+.objective-text:nth-child(1) {
+  animation: fade-in-out 2s forwards;
+  animation-delay: 1s; /* Delay the first line by 1s */
+}
+
+.objective-text:nth-child(2) {
+  animation: fade-in-out 2s forwards;
+  animation-delay: 5s; /* Delay the second line by 5s */
+}
+
+.objective-text:nth-child(3) {
+  animation: fade-in-out 2s forwards;
+  animation-delay: 8s; /* Delay the third line by 8s */
+}
+
+.button-container {
+  margin-top: 20px; /* Adjusted margin for better spacing */
+  text-align: center; /* Center align buttons */
 }
 
 #selection-button {
   opacity: 0;
 }
-  
+
 .objective-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 30px;
-    text-size-adjust: 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-.objective-button:first-child {
-    margin-right: 30px; /* Add right margin to the first button */
+  display: block; /* Display buttons as block elements */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px; /* Reduced font size for mobile and tablets */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto 10px; /* Center buttons horizontally and add bottom margin for spacing */
 }
 
-.objective-button:last-child {
-    margin-left: 30px; /* Add left margin to the last button */
+.objective-button:hover {
+  background-color: #0056b3;
 }
 
-  .objective-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}

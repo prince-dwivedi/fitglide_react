@@ -1,0 +1,75 @@
+.diabetes-quiz {
+    position: fixed;
+    margin-top: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 250%; /* Remove fixed width */
+    max-width: 50%; /* Maximum width */    
+    padding: 10px; /* Added padding */
+}
+
+.question {
+    font-size: 2em; /* Use scalable units */
+    font-style: italic;
+    font-weight: bold;
+    opacity: 1;
+    margin: 0; /* Removed margin to reduce space */
+    display: inline-block; /* Allow the container to expand */
+   align-content: center;
+    width:175%;
+    margin-left: -35%;
+    margin-top:70%;
+}
+
+.options {
+    opacity: 1;
+    margin-top: 0.25em; /* Adjusted margin-top */
+    font-size: 2em; /* Use scalable units */
+    width:250%;
+    margin-left: -75%;
+    margin-top:40px;
+}
+
+.encouragement {
+    font-size: 1.5em; /* Use scalable units */
+    font-style: italic;
+    margin-top: 0.5em; /* Adjusted margin-top */
+    opacity: 1;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Media queries for tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .question, .options {
+        font-size: 1.5em; /* Adjust font size for tablets */
+    }
+
+    .encouragement {
+        font-size: 1.25em; /* Adjust font size for tablets */
+    }
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 480px) {
+    .question, .options {
+        font-size: 1em; /* Adjust font size for mobiles */
+    }
+
+    .encouragement {
+        font-size: 0.75em; /* Adjust font size for mobiles */
+    }
+}

@@ -1,41 +1,103 @@
 .weight-loss-quiz {
     position: fixed;
-    top: 40%;
-    left: 40%;
-    transform: translate(-60%, -40%);
+    margin-top: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    width: 45%; /* Adjusted width */
+    max-width: 500px; /* Maximum width */
+    box-sizing: border-box; /* To include padding in width calculation */
+    padding: 20px; /* Added padding */
+    margin-left: -7%;
+    transition: opacity 1s ease; /* Add transition property for opacity */
+    opacity: 1; /* Initial opacity */
 }
 
 .question {
-    font-size: 30px;
+    font-size: 2em; /* Use scalable units */
     font-style: italic;
     font-weight: bold;
     opacity: 1;
-    margin: 30px;
+    margin: 0; /* Removed margin to reduce space */
+    display: inline-block; /* Allow the container to expand */
+   align-content: center;
+    width:250%;
+    margin-left: -55%;
+    margin-top:55%;
 }
 
 .options {
     opacity: 1;
-    margin-top: 30px;
-    font-size: 30px;
+    margin-top: 15px; /* Adjusted margin */
+    font-size: 1.5em; /* Adjusted font size */
+    margin-left: -55%;
 }
 
 .encouragement {
-    font-size: 25px;
-    font-style: italic;
-    margin-top: 30px;
-    opacity: 1;
-}
-
-.fade-in {
+    /* ... existing styles ... */
     animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 1s; /* Delay the animation to start after the question fades out */
+    width: 250%;
+    margin-left: -55%;
+    font-size: 1em; /* Adjusted font size */
+
 }
 
+
+.content {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Keyframes for fade-in animation */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Keyframes for fade-out animation */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Media queries for tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .question {
+        font-size: 1.5em;
     }
-    100% {
-        opacity: 1;
+
+    .options {
+        font-size: 1.5em;
+    }
+
+    .encouragement {
+        font-size: 1.25em;
+    }
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 767px) {
+    .weight-loss-quiz {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .question {
+        font-size: 1em;
+    }
+
+    .options {
+        font-size: 1em;
+    }
+
+    .encouragement {
+        font-size: 0.75em;
     }
 }

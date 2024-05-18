@@ -1,23 +1,63 @@
 .diabetes {
     position: fixed;
-    top: 40%;
-    left: 40%;
-    transform: translate(-60%, -40%);
-    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the whole screen width */
+    height: 100%; /* Cover the whole screen height */
+    text-align: center; /* Center the content horizontally */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
 }
 
 .diabetes-text {
-    font-size: 30px;
+    font-size: 2em; /* Use scalable units */
     opacity: 0;
-    margin: 20px;
-    /* animation: fadeIn 1s ease-in-out forwards; */
+    margin: 0; /* Reset margin */
+    margin-top: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fade-in-out 2s forwards;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+@keyframes fade-in-out {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Apply animation delay to each line */
+.diabetes-text:nth-child(1) { animation-delay: 1s; }
+.diabetes-text:nth-child(2) { animation-delay: 5s; }
+.diabetes-text:nth-child(3) { animation-delay: 9s; }
+.diabetes-text:nth-child(4) { animation-delay: 13s; }
+
+.play-button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 1em 2em; /* Use scalable units */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2em; /* Use scalable units */
+    margin-top: 5em; /* Adjusted margin-top to move the button down by 30px */
+    cursor: pointer;
+    position: relative;
+    z-index: 999;
+}
+
+
+/* Media queries for tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .diabetes-text { font-size: 1.5em; }
+    .play-button { font-size: 1.5em; padding: 0.75em 1.5em; }
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 480px) {
+    .diabetes-text { font-size: 1em; }
+    .play-button { font-size: 1em; padding: 0.5em 1em; }
 }
