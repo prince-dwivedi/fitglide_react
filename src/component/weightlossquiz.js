@@ -149,16 +149,14 @@ const WeightLossQuiz = ({ onQuizComplete }) => {
         } else {
             setEncouragement("Oops! That's not quite right. Keep going!");
         }
-        const nextQuestionTimeout = setTimeout(() => {
+        setTimeout(() => {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelectedOption('');
             setEncouragement('');
         }, 3000); // Show next question after 3 seconds
     };
 
-    const handleQuizComplete = () => {
-        onQuizComplete(fitCoinsEarned);
-    };
+  
 
     const handleSignupClick = () => {
         setFadeOut(true); // Start the fade-out animation
@@ -198,8 +196,9 @@ const WeightLossQuiz = ({ onQuizComplete }) => {
                 )}
                 {quizCompleted && (
                     <div>
-                        <p>Congratulations! You've completed the quiz!</p>
+                        <p>Congratulations!</p>
                         <p>You've earned {fitCoinsEarned} FitCoins!</p>
+                        <p>Singup to redeem your "Fitcoins"</p>
                         <button onClick={handleSignupClick}>Sign Up</button> {/* Show signup form when clicked */}
                     </div>
                 )}

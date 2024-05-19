@@ -12,7 +12,7 @@ const WeightLoss = ({ visitorName }) => {
     };
 
     const handlePlayButtonClick = () => {
-        console.log("Hererererrerererer")
+        console.log("Here")
         setFadeScreen(true); // Set state to fade out the screen
         setTimeout(() => {
             setShowQuiz(true); // Set state to show the WeightLossQuiz component after half a second
@@ -38,7 +38,7 @@ const WeightLoss = ({ visitorName }) => {
 
         const buttonTimeout = setTimeout(() => {
             setShowButton(true); // Set showButton state to true after 7 seconds
-        }, 15000); // Button appears after 9 seconds
+        }, 15000); // Button appears after 15 seconds
 
         return () => {
             clearTimeout(lineTimeout1);
@@ -52,19 +52,17 @@ const WeightLoss = ({ visitorName }) => {
     return (
         <div>
             {!showQuiz && (
-                <div className={`weight-loss ${fadeScreen ? 'fade-out' : ''}`}>
-                    <p id="line1" className="weight-loss-text">Congratulations, {capitalizeName(visitorName)}! 🌟 Your fitness journey begins now!</p>
-                    <p id="line2" className="weight-loss-text">By joining us, you're already on the path to success.</p>
-                    <p id="line3" className="weight-loss-text">India's obesity rates are exploding, rivaling China for the world's #2 spot. Studies show a near-tripling of obesity since 1990, fueled by our changing lifestyles, unhealthy diets, and decreasing physical activity.</p>
-                    <p id="line4" className="weight-loss-text">Discover weight's impact, earn FitCoins! Play the game for rewards and start your wellness journey!</p>
+                <div className={`weight-loss ${fadeScreen ? 'fade-out' : ''} container text-center py-5`}>
+                    <p id="line1" className="weight-loss-text fade-text">Congratulations, {capitalizeName(visitorName)}! 🌟 Your fitness journey begins now!</p>
+                    <p id="line2" className="weight-loss-text fade-text">By joining us, you're already on the path to success.</p>
+                    <p id="line3" className="weight-loss-text fade-text">India's obesity rates are exploding, rivaling China for the world's #2 spot. Studies show a near-tripling of obesity since 1990, fueled by our changing lifestyles, unhealthy diets, and decreasing physical activity.</p>
+                    <p id="line4" className="weight-loss-text fade-text">Discover weight's impact, earn FitCoins! Play the game for rewards and start your wellness journey!</p>
                     
-                
-                {showButton && (
-                    <button className="play-button" onClick={handlePlayButtonClick}>Let's Play!</button>
-                )}  
-                    </div>
-                )}
-                
+                    {showButton && (
+                        <button className="btn btn-primary btn-lg mt-4" onClick={handlePlayButtonClick}>Let's Play!</button>
+                    )}
+                </div>
+            )}
             
             {showQuiz && <WeightLossQuiz />}
         </div>
