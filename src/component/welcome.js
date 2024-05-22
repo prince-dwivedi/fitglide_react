@@ -1,9 +1,8 @@
-/* welcome.js */
-import React, { useState, useEffect } from "react";
-import MaxIcon from "../assets/images/max_new.png";
-import "../styles/welcome.css";
-import Introduction from "../component/introduction";
-import Objective from "../component/objective";
+import React, { useState, useEffect } from 'react';
+import MaxIcon from '../assets/images/max_new.png';
+import '../styles/welcome.css';
+import Introduction from './introduction';
+import Objective from './objective';
 
 const Welcome = () => {
   const [showLines, setShowLines] = useState(false);
