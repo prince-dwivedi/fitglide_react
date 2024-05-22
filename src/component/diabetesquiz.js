@@ -146,14 +146,14 @@ const DiabetesQuiz = () => {
     };
 
     return (
-        <div className="diabetes-quiz">
+        <div className="">
             {currentQuestionIndex < questions.length && (
                 <>
-                    <h3 className={`question fade-in`}>{questions[currentQuestionIndex].question}</h3>
+                    <h3 className={`line fade-in`}>{questions[currentQuestionIndex].question}</h3>
                     {!selectedOption && showResponse && (
-                        <div className={`options fade-in`}>
+                        <div className={`line fade-in row `}>
                             {questions[currentQuestionIndex].options.map(option => (
-                                <div key={option.id}>
+                                <div key={option.id} className='col-sm-12 col-12 '>
                                     <input
                                         type="radio"
                                         id={`option${option.id}`}
@@ -168,7 +168,7 @@ const DiabetesQuiz = () => {
                         </div>
                     )}
                     {encouragement && (
-                        <p className={`encouragement fade-in`}>{encouragement}</p>
+                        <p className={`encouragement `}>{encouragement}</p>
                     )}
                 </>
             )}

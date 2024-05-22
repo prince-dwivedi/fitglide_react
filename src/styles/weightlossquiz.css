@@ -38,8 +38,8 @@
     /* ... existing styles ... */
     animation: fadeIn 1s ease-in-out forwards;
     animation-delay: 1s; /* Delay the animation to start after the question fades out */
-    width: 250%;
-    margin-left: -55%;
+    /* width: 250%;
+    margin-left: -55%; */
     font-size: 1em; /* Adjusted font size */
 
 }
@@ -52,6 +52,14 @@
 
 .fade-out {
     opacity: 0;
+}
+.quiz-completion-message {
+    font-size: 25px;
+    color: #0c0c0c;
+    /* opacity: 0; */
+    /* margin: -40px; */
+    text-align: center;
+
 }
 
 /* Keyframes for fade-in animation */
