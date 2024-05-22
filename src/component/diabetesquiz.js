@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../../src/styles/diabetesquiz.css";
+import SignUpModal from "./SignUpModal"
 
 const questions = [
     {
@@ -177,6 +178,7 @@ const DiabetesQuiz = () => {
                     <p>Woohoo! You’ve aced the quiz and snagged {fitCoinsEarned} FitCoins!</p>
                     <p>Keep it up, champion!</p>
                     <p>Sign up to earn rewards using Fitcoins.🌟</p>
+                    <SignUpModal />
                     
                 </div>
             )}
