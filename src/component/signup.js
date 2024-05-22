@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../src/styles/signup.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const SignUp = () => {
+const SignUp = ({ fitCoinsEarned }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -10,6 +11,12 @@ const SignUp = () => {
         mobileNumber: '',
         password: ''
     });
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log('Received fitCoinsEarned:', fitCoinsEarned);
+    }, [fitCoinsEarned]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,11 +28,24 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const dataToSubmit = {
+            ...formData,
+            fitCoins: fitCoinsEarned // Include fitCoinsEarned in the request
+        };
+        console.log('Submitting:', dataToSubmit);
         try {
-            const response = await axios.post('http://localhost:5001/signup', formData);
-            console.log(response.data); // Log success message or handle response
+            const response = await axios.post('http://localhost:5001/signup', dataToSubmit);
+            console.log(response.data);
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                mobileNumber: '',
+                password: ''
+            });
+            navigate('/homepage');
         } catch (error) {
-            console.error('Signup failed:', error);
+            console.error('Signup failed:', error.response ? error.response.data : error.message);
         }
     };
 
@@ -90,12 +110,16 @@ const SignUp = () => {
                         id="password"
                         name="password"
                         minLength="8"
-                        //pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])"
                         value={formData.password}
                         onChange={handleChange}
                         required
                     />
                 </div>
+                <input
+                    type="hidden"
+                    name="fitCoins"
+                    value={fitCoinsEarned}
+                />
                 <button type="submit" className="btn btn-primary w-100">Sign Up</button>
             </form>
         </div>
