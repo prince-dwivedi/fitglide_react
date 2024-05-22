@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import '../../src/styles/singup.css'
+import React, { useState, useEffect } from 'react';
+import '../../src/styles/signup.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const SignUp = () => {
+const SignUp = ({ fitCoinsEarned }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -10,6 +11,12 @@ const SignUp = () => {
         mobileNumber: '',
         password: ''
     });
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log('Received fitCoinsEarned:', fitCoinsEarned);
+    }, [fitCoinsEarned]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,22 +28,36 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const dataToSubmit = {
+            ...formData,
+            fitCoins: fitCoinsEarned // Include fitCoinsEarned in the request
+        };
+        console.log('Submitting:', dataToSubmit);
         try {
-            const response = await axios.post('/signup', formData);
-            console.log(response.data); // Log success message or handle response
+            const response = await axios.post('http://localhost:5001/signup', dataToSubmit);
+            console.log(response.data);
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                mobileNumber: '',
+                password: ''
+            });
+            navigate('/homepage');
         } catch (error) {
-            console.error('Signup failed:', error);
+            console.error('Signup failed:', error.response ? error.response.data : error.message);
         }
     };
 
     return (
-        <div>
-            <h2>Sign Up</h2>
+        <div className="container my-5">
+            <h2 className="text-center">Sign Up</h2>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="firstName">First Name</label>
+                <div className="mb-3">
+                    <label htmlFor="firstName" className="form-label">First Name</label>
                     <input
                         type="text"
+                        className="form-control"
                         id="firstName"
                         name="firstName"
                         value={formData.firstName}
@@ -44,10 +65,11 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor="lastName">Last Name</label>
+                <div className="mb-3">
+                    <label htmlFor="lastName" className="form-label">Last Name</label>
                     <input
                         type="text"
+                        className="form-control"
                         id="lastName"
                         name="lastName"
                         value={formData.lastName}
@@ -55,10 +77,11 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor="email">Email Address</label>
+                <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email Address</label>
                     <input
                         type="email"
+                        className="form-control"
                         id="email"
                         name="email"
                         value={formData.email}
@@ -66,10 +89,11 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor="mobileNumber">Mobile Number</label>
+                <div className="mb-3">
+                    <label htmlFor="mobileNumber" className="form-label">Mobile Number</label>
                     <input
                         type="tel"
+                        className="form-control"
                         id="mobileNumber"
                         name="mobileNumber"
                         pattern="[0-9]{10}"
@@ -78,20 +102,25 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor="password">Password</label>
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password</label>
                     <input
                         type="password"
+                        className="form-control"
                         id="password"
                         name="password"
                         minLength="8"
-                        //pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])"
                         value={formData.password}
                         onChange={handleChange}
                         required
                     />
                 </div>
-                <button type="submit">Sign Up</button>
+                <input
+                    type="hidden"
+                    name="fitCoins"
+                    value={fitCoinsEarned}
+                />
+                <button type="submit" className="btn btn-primary w-100">Sign Up</button>
             </form>
         </div>
     );

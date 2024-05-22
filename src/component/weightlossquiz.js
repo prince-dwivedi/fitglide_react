@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../../src/styles/weightlossquiz.css";
-import Signup from '../../src/component/singup'; // Import the Signup component
+import Signup from '../../src/component/signup';
+
 
 const questions = [
     {
@@ -149,27 +150,22 @@ const WeightLossQuiz = ({ onQuizComplete }) => {
         } else {
             setEncouragement("Oops! That's not quite right. Keep going!");
         }
-        const nextQuestionTimeout = setTimeout(() => {
+        setTimeout(() => {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelectedOption('');
             setEncouragement('');
         }, 3000); // Show next question after 3 seconds
     };
 
-    const handleQuizComplete = () => {
-        onQuizComplete(fitCoinsEarned);
-    };
-
     const handleSignupClick = () => {
         setFadeOut(true); // Start the fade-out animation
         setTimeout(() => {
             setShowSignup(true); // Set state to show the signup form after fade-out
-            console.log("showSignup:", showSignup);
         }, 2000); // Adjust timing to match your CSS transition duration
     };
 
     return (
-        <div className="weight-loss-quiz" >
+        <div className="weight-loss-quiz">
             <div className={`content ${fadeOut ? 'fade-out' : ''}`}>
                 {currentQuestionIndex < questions.length && (
                     <>
@@ -198,13 +194,14 @@ const WeightLossQuiz = ({ onQuizComplete }) => {
                 )}
                 {quizCompleted && (
                     <div>
-                        <p>Congratulations! You've completed the quiz!</p>
+                        <p>Congratulations!</p>
                         <p>You've earned {fitCoinsEarned} FitCoins!</p>
+                        <p>Signup to redeem your "Fitcoins"</p>
                         <button onClick={handleSignupClick}>Sign Up</button> {/* Show signup form when clicked */}
                     </div>
                 )}
             </div>
-            {showSignup && <Signup />} {/* Conditionally render the Signup component */}
+            {showSignup && <Signup fitCoinsEarned={fitCoinsEarned} />} {/* Pass fitCoinsEarned to Signup */}
         </div>
     );
 };

@@ -1,15 +1,18 @@
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Welcome from './component/welcome';
 import './App.css';
-import Welcome from '../src/component/welcome';
-
 
 const App = () => {
-  
-
   return (
-    <div className="App">
-      <Welcome/> {/* Pass visitor's name to Welcome component */}
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          {/* Add other routes here as needed */}
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

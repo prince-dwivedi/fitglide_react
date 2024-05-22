@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import Signup from '../../src/component/signup';
 import "../../src/styles/diabetesquiz.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const questions = [
     {
@@ -120,6 +123,8 @@ const DiabetesQuiz = () => {
     const [showResponse, setShowResponse] = useState(true); // Initially true to show the first question
     const [encouragement, setEncouragement] = useState('');
     const [fitCoinsEarned, setFitCoinsEarned] = useState(0); // State to track total fitcoins earned
+    const [showSignup, setShowSignup] = useState(false); // State to show signup form
+    const [showQuiz, setShowQuiz] = useState(true); // State to handle quiz visibility
 
     useEffect(() => {
         if (selectedOption !== null) {
@@ -145,41 +150,63 @@ const DiabetesQuiz = () => {
         setSelectedOption(optionId);
     };
 
+    const handleSignupClick = () => {
+        setShowQuiz(false);
+        setTimeout(() => setShowSignup(true), 500); // Wait for the fade-out animation to complete
+    };
+
     return (
-        <div className="diabetes-quiz">
-            {currentQuestionIndex < questions.length && (
-                <>
-                    <h3 className={`question fade-in`}>{questions[currentQuestionIndex].question}</h3>
-                    {!selectedOption && showResponse && (
-                        <div className={`options fade-in`}>
-                            {questions[currentQuestionIndex].options.map(option => (
-                                <div key={option.id}>
-                                    <input
-                                        type="radio"
-                                        id={`option${option.id}`}
-                                        name="option"
-                                        value={option.id}
-                                        checked={selectedOption === option.id}
-                                        onChange={() => handleOptionChange(option.id)}
-                                    />
-                                    <label htmlFor={`option${option.id}`}>{option.text}</label>
+        <div className="diabetes-quiz container mt-5">
+            <CSSTransition
+                in={showQuiz}
+                timeout={500}
+                classNames="fade"
+                unmountOnExit
+            >
+                <div>
+                    {currentQuestionIndex < questions.length && (
+                        <>
+                            <h3 className="question fade-in">{questions[currentQuestionIndex].question}</h3>
+                            {!selectedOption && showResponse && (
+                                <div className="options fade-in">
+                                    {questions[currentQuestionIndex].options.map(option => (
+                                        <div key={option.id}>
+                                            <input
+                                                type="radio"
+                                                id={`option${option.id}`}
+                                                name="option"
+                                                value={option.id}
+                                                checked={selectedOption === option.id}
+                                                onChange={() => handleOptionChange(option.id)}
+                                            />
+                                            <label htmlFor={`option${option.id}`}>{option.text}</label>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            )}
+                            {encouragement && (
+                                <p className="encouragement fade-in">{encouragement}</p>
+                            )}
+                        </>
+                    )}
+                    {currentQuestionIndex === questions.length && (
+                        <div className="quiz-completion-message text-center">
+                            <p>Woohoo! You’ve aced the quiz and snagged {fitCoinsEarned} FitCoins!</p>
+                            <p>Keep it up, champion!</p>
+                            <p>Sign up to earn rewards using Fitcoins.🌟</p>
+                            <button className="btn btn-primary mt-3" onClick={handleSignupClick}>Sign Up</button>
                         </div>
                     )}
-                    {encouragement && (
-                        <p className={`encouragement fade-in`}>{encouragement}</p>
-                    )}
-                </>
-            )}
-            {currentQuestionIndex === questions.length && (
-                <div className="quiz-completion-message">
-                    <p>Woohoo! You’ve aced the quiz and snagged {fitCoinsEarned} FitCoins!</p>
-                    <p>Keep it up, champion!</p>
-                    <p>Sign up to earn rewards using Fitcoins.🌟</p>
-                    
                 </div>
-            )}
+            </CSSTransition>
+            <CSSTransition
+                in={showSignup}
+                timeout={500}
+                classNames="fade"
+                unmountOnExit
+            >
+                <Signup fitCoinsEarned={fitCoinsEarned} />
+            </CSSTransition>
         </div>
     );
 };
