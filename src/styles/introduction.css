@@ -8,17 +8,23 @@
   position: relative;
 }
 
+.intro-text{
+  font-size: 25px; /* Reduced font size for mobile and tablets */
+  color: black;
+  opacity: 0;
+}
+
 .introduction-text {
   font-size: 25px; /* Reduced font size for mobile and tablets */
   color: black;
   opacity: 0;
-  margin: 0; /* Remove negative margin */
-  text-align: center;
-  position: fixed;
+  /* margin: 0; Remove negative margin */
+  /* text-align: center; */
+  /* position: fixed;
   text-justify: center;
   top: 65%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 /* Keyframes for fading in and out */
@@ -39,8 +45,8 @@
 }
 
 .introduction-text:nth-child(3) {
-  animation: fade-in 2s forwards;
-  animation-delay: 9s; /* Delay the third line by 9s */
+  /* animation: fade-in 2s forwards;
+  animation-delay: 9s; Delay the third line by 9s */
 }
 
 .input-container {
@@ -95,4 +101,19 @@
   .line {
     font-size: 25px; /* Further reduced font size for smaller screens */
   }
+}
+.fade-in.delay-1s {
+  animation-delay: 1s;
+}
+
+.fade-in.delay-2s {
+  animation-delay: 5s;
+}
+
+.fade-in.delay-3s {
+  animation-delay: 9s;
+}
+
+.fade-in.delay-4s {
+  animation-delay: 13s;
 }

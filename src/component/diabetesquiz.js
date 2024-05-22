@@ -156,7 +156,7 @@ const DiabetesQuiz = () => {
     };
 
     return (
-        <div className="diabetes-quiz container mt-5">
+        <div className=" mt-5">
             <CSSTransition
                 in={showQuiz}
                 timeout={500}
@@ -166,9 +166,9 @@ const DiabetesQuiz = () => {
                 <div>
                     {currentQuestionIndex < questions.length && (
                         <>
-                            <h3 className="question fade-in">{questions[currentQuestionIndex].question}</h3>
+                            <h3 className="line fade-in">{questions[currentQuestionIndex].question}</h3>
                             {!selectedOption && showResponse && (
-                                <div className="options fade-in">
+                                <div className="line fade-in">
                                     {questions[currentQuestionIndex].options.map(option => (
                                         <div key={option.id}>
                                             <input

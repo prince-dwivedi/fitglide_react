@@ -12,7 +12,6 @@ const WeightLoss = ({ visitorName }) => {
     };
 
     const handlePlayButtonClick = () => {
-        console.log("Here")
         setFadeScreen(true); // Set state to fade out the screen
         setTimeout(() => {
             setShowQuiz(true); // Set state to show the WeightLossQuiz component after half a second

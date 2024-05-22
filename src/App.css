@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+
+.line {
+  font-size: 25px;
+  color: #0c0c0c;
+  opacity: 0;
+  /* margin: -40px; */
+  text-align: center;
+  /* position: fixed; */
+  /* top: 75%;
+  left: 60%;
+  transform: translate(-50%, -50%); */
+}
+
+.fade-in-out {
+  animation: fadeInOut 5s forwards;
+}
+
+.fade-in-out.delay-1s {
+  animation-delay: 1s;
+}
+
+.fade-in-out.delay-2s {
+  animation-delay: 5s;
+}
+
+.fade-in-out.delay-3s {
+  animation-delay: 9s;
+}
+
+.fade-in-out.delay-4s {
+  animation-delay: 13s;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
