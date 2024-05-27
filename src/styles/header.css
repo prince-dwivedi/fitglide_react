@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 1rem; /* Add padding for spacing */
+}
+
+.header img {
+width: 15rem;
+height: 4.5rem;
+padding-left: -0.5rem;
+}
+
+.header-menu {
+  list-style: none; /* Remove default list styling */
+  display: flex;
+  gap: 2rem;
+  color: white;
+  text-decoration: none;
+  padding: 1rem; /* Add padding for better clickable area */
+  
+}
+
+.header-menu li:hover {
+  text-decoration: underline; /* Add underline on hover for visibility */
+}
+

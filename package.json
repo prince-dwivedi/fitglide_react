@@ -11,6 +11,7 @@
     "bootstrap-icons": "^1.11.3",
     "epxress": "^0.0.1-security",
     "formik": "^2.4.6",
+    "framer-motion": "^11.2.6",
     "latest": "^0.2.0",
     "mongodb": "^6.5.0",
     "react": "^18.2.0",
