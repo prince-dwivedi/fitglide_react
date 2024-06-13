@@ -1,220 +1,220 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #3c3f45; /* Fallback background color */
-  }
-  
-  .hero {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .left-h {
-    padding-left: 2rem;
-    flex: 3;
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
-  }
-  
-  .right-h {
-    flex: 1;
-    position: relative;
-    background-color: orange;
-  }
-  
-  .myadd {
-    margin-top: 4rem;
-    background-color: #363d42;
-    border-radius: 4rem;
-    width: fit-content;
-    padding: 20px 13px;
-    text-transform: uppercase;
-    color: white;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  
-  .myadd>span{
-    z-index: 2;
-  }
-
-  .myadd>div {
-    position: absolute;
-    background-color: orange; /* This should be visible */
-    width: 5.4rem;
-    height: 80%;
-    left: 8px;
-    border-radius: 3rem;
-    z-index: 1;
-  }
-
-  .hero-text{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-transform: uppercase;
-    font-size: 4.5rem;
-    font-weight: bold;
-    color: white;
-    text-align: left;
-    text-overflow: inherit;
-  }
-
-  .stroke-text{
-    color: transparent;
-    font-family: Arial, Helvetica, sans-serif;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
-  }
-  
-  .hero-text>div:nth-of-type(3){
-    font-size: 1rem;
-    font-weight: normal;
-    text-transform: none;
-    letter-spacing: 1px;
-    width: 80%;
-  }
-
-  .figures{
-    display: flex;
-    gap: 2rem;
-    text-align: start;
-  }
-
-  .figures>div{
-    display: flex;
-    flex-direction: column;
-  }
-
-
-  .figures>div>span:nth-of-type(1){
-    color: white;
-    font-size: 2rem;
-  }
-
-  .figures>div>span:nth-of-type(2){
-    color: gray;
-    text-transform: uppercase;
-  }
-
-  .btn{
-    background-color: white;
-    padding: 0.5rem;
-    font-weight: bold;
-    border: 4px solid transparent;
-    transition: 300ms all;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .btn:hover{
-    cursor: pointer;
-  }
-
-  .hero-buttons{
-    display: flex;
-    gap: 1rem;
-    font-weight: normal;
-  }
-
-  .hero-buttons>:nth-child(1){
-    color: white;
-    background-color: orange;
-    width: 8rem;
-  }
-
-
-  .hero-buttons>:nth-child(2){
-    color: white;
-    background-color: transparent;
-    width: 8rem;
-    border: 2px solid orange;
-  }
-
-  .right-h>.btn{
-    position: absolute;
-    right: 3rem;
-    top: 2rem;
-    color: black;
-  }
-
-  .heart-rate{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: darkgrey;
-    width: fit-content;
-    padding: 1rem;
-    align-items: flex-start;
-    border-radius: 5px;
-    position: absolute;
-    right: 15rem;
-    top: 7rem;
+  margin: 0;
+  padding: 0;
+  background-color: #3c3f45; /* Fallback background color */
 }
 
-.heart-rate>img{
-    width: 2rem;
+.hero {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.heart-rate>:nth-child(2){
-    color: grey;
-}
-.heart-rate>:nth-child(3){
-    color: white;
-    font-size: 1.5rem;
-}
-
-.hero-image{
-    position: absolute;
-    top: 10rem;
-    right: 8rem;
-    width: 23rem;
+.left-h {
+  padding-left: 2rem;
+  flex: 3;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
 }
 
-.hero-image-back{
-    position: absolute;
-    top: 4rem;
-    right:20rem;
-    z-index: -1;
-    width: 15rem;
+.right-h {
+  flex: 1;
+  position: relative;
+  background-color: orange;
 }
 
-.calories{
-    display: flex;
-    gap: 2rem;
-    background-color: #656565;
-    border-radius: 5px;
-    padding: 1rem;
-    width: max-content;
-    position: absolute;
-    top: 38.5rem;
-    right: 35rem;
+.myadd {
+  margin-top: 4rem;
+  background-color: #363d42;
+  border-radius: 4rem;
+  width: fit-content;
+  padding: 20px 13px;
+  text-transform: uppercase;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.calories>img{
-    width: 3rem;
+.myadd > span {
+  z-index: 2;
 }
 
-.calories > div{
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between; 
+.myadd > div {
+  position: absolute;
+  background-color: orange; /* This should be visible */
+  width: 5.4rem;
+  height: 80%;
+  left: 8px;
+  border-radius: 3rem;
+  z-index: 1;
 }
 
-.calories>div>:nth-child(1){
-    color: grey;
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  text-overflow: inherit;
 }
 
-.calories>div>:nth-child(2){
-    color:white;
-    font-size: 1.5rem;
+.stroke-text {
+  color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
 }
 
-.blur{
+.hero-text > div:nth-of-type(3) {
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 1px;
+  width: 80%;
+}
+
+.figures {
+  display: flex;
+  gap: 2rem;
+  text-align: start;
+}
+
+.figures > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.figures > div > span:nth-of-type(1) {
+  color: white;
+  font-size: 2rem;
+}
+
+.figures > div > span:nth-of-type(2) {
+  color: gray;
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: white;
+  padding: 0.5rem;
+  font-weight: bold;
+  border: 4px solid transparent;
+  transition: 300ms all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  font-weight: normal;
+}
+
+.hero-buttons > :nth-child(1) {
+  color: white;
+  background-color: orange;
+  width: 8rem;
+}
+
+.hero-buttons > :nth-child(2) {
+  color: white;
+  background-color: transparent;
+  width: 8rem;
+  border: 2px solid orange;
+}
+
+.right-h > .btn {
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+  color: black;
+}
+
+.heart-rate {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: darkgrey;
+  width: fit-content;
+  padding: 1rem;
+  align-items: flex-start;
+  border-radius: 5px;
+  position: absolute;
+  right: 15rem;
+  top: 7rem;
+}
+
+.heart-rate > img {
+  width: 2rem;
+}
+
+.heart-rate > :nth-child(2) {
+  color: grey;
+}
+
+.heart-rate > :nth-child(3) {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.hero-image {
+  position: absolute;
+  top: 10rem;
+  right: 8rem;
+  width: 23rem;
+}
+
+.hero-image-back {
+  position: absolute;
+  top: 4rem;
+  right: 20rem;
+  z-index: -1;
+  width: 15rem;
+}
+
+.calories {
+  display: flex;
+  gap: 2rem;
+  background-color: #656565;
+  border-radius: 5px;
+  padding: 1rem;
+  width: max-content;
+  position: absolute;
+  top: 38.5rem;
+  right: 35rem;
+}
+
+.calories > img {
+  width: 3rem;
+}
+
+.calories > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calories > div > :nth-child(1) {
+  color: grey;
+}
+
+.calories > div > :nth-child(2) {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.blur {
   background: rgba(253, 120, 43, 0.69);
   position: absolute;
   border-radius: 50%;
@@ -222,10 +222,130 @@ body {
   z-index: -9;
 }
 
-.hero-blur{
+.hero-blur {
   width: 22rem;
   height: 30rem;
   left: 0;
 }
 
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .hero-image {
+    width: 20rem;
+    right: 5rem;
+  }
 
+  .hero-image-back {
+    right: 15rem;
+    width: 12rem;
+  }
+
+  .calories {
+    right: 25rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .left-h {
+    padding-left: 1rem;
+  }
+
+  .hero-image {
+    width: 18rem;
+    right: 4rem;
+  }
+
+  .hero-image-back {
+    right: 12rem;
+    width: 10rem;
+  }
+
+  .calories {
+    top: 35rem;
+    right: 20rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-h,
+  .right-h {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .hero-text {
+    font-size: 2.5rem;
+  }
+
+  .figures {
+    gap: 1rem;
+  }
+
+  .figures > div > span:nth-of-type(1) {
+    font-size: 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-image {
+    width: 15rem;
+    right: 0;
+    top: 20rem;
+  }
+
+  .hero-image-back {
+    width: 10rem;
+    right: 0;
+    top: 15rem;
+  }
+
+  .calories {
+    top: 45rem;
+    right: 10rem;
+  }
+
+  .heart-rate {
+    right: 5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-text {
+    font-size: 2rem;
+  }
+
+  .hero-text > div:nth-of-type(3) {
+    font-size: 0.9rem;
+  }
+
+  .figures > div > span:nth-of-type(1) {
+    font-size: 1.2rem;
+  }
+
+  .hero-image {
+    width: 12rem;
+    top: 15rem;
+  }
+
+  .hero-image-back {
+    width: 8rem;
+    top: 10rem;
+  }
+
+  .calories {
+    top: 40rem;
+    right: 5rem;
+  }
+
+  .heart-rate {
+    right: 3rem;
+  }
+}
