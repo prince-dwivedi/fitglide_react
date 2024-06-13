@@ -11,7 +11,7 @@ body {
 }
 
 .left-h {
-  padding-left: 2rem;
+  padding: 2rem;
   flex: 3;
   display: flex;
   gap: 2rem;
@@ -22,6 +22,7 @@ body {
   flex: 1;
   position: relative;
   background-color: orange;
+  padding: 2rem;
 }
 
 .myadd {
@@ -243,26 +244,38 @@ body {
   .calories {
     right: 25rem;
   }
+
+  .heart-rate {
+    right: 10rem;
+  }
 }
 
 @media (max-width: 992px) {
   .left-h {
-    padding-left: 1rem;
+    padding: 1rem;
+  }
+
+  .right-h {
+    padding: 1rem;
   }
 
   .hero-image {
     width: 18rem;
-    right: 4rem;
+    right: 3rem;
   }
 
   .hero-image-back {
-    right: 12rem;
+    right: 10rem;
     width: 10rem;
   }
 
   .calories {
     top: 35rem;
-    right: 20rem;
+    right: 18rem;
+  }
+
+  .heart-rate {
+    right: 7rem;
   }
 }
 
@@ -298,22 +311,23 @@ body {
   .hero-image {
     width: 15rem;
     right: 0;
-    top: 20rem;
+    top: 15rem;
   }
 
   .hero-image-back {
     width: 10rem;
     right: 0;
-    top: 15rem;
+    top: 10rem;
   }
 
   .calories {
     top: 45rem;
-    right: 10rem;
+    right: 5rem;
   }
 
   .heart-rate {
-    right: 5rem;
+    right: 3rem;
+    top: 30rem;
   }
 }
 
@@ -332,20 +346,21 @@ body {
 
   .hero-image {
     width: 12rem;
-    top: 15rem;
+    top: 10rem;
   }
 
   .hero-image-back {
     width: 8rem;
-    top: 10rem;
+    top: 8rem;
   }
 
   .calories {
     top: 40rem;
-    right: 5rem;
+    right: 2rem;
   }
 
   .heart-rate {
-    right: 3rem;
+    right: 2rem;
+    top: 25rem;
   }
 }
