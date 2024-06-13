@@ -43,7 +43,7 @@ const SignUp = ({ fitCoinsEarned }) => {
                 mobileNumber: '',
                 password: ''
             });
-            navigate('/homepage');
+            navigate('/home');
         } catch (error) {
             console.error('Signup failed:', error.response ? error.response.data : error.message);
         }
