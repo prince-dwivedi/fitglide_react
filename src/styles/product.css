@@ -1,0 +1,18 @@
+.product-page {
+    padding: 20px;
+  }
+  
+  .activity-selector button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .cycle-list ul {
+    list-style-type: none;
+  }
+  
+  .cycle-list li {
+    margin: 10px 0;
+  }
+  

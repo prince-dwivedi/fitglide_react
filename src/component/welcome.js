@@ -56,7 +56,7 @@ const Welcome = () => {
   return (
     <div className="row">
       <div className="col-12">
-        <img src={MaxIcon} alt="Max Icon" className="img-fluid" />
+        //<img src={MaxIcon} alt="Max Icon" className="img-fluid" />
       </div>
       <div className="col-12">
         {/* <div className={` ${showLines ? 'fade-in' : 'fade-out'}`}> */}
